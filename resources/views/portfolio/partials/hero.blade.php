@@ -27,7 +27,7 @@
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tighter mb-6">
                 Hi, I'm <br />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF00] to-emerald-400">
-                    {{ $profile->full_name ?? 'Alex Dev' }}
+                    {{ $profile->full_name ?? 'no name' }}
                 </span>
             </h1>
 
@@ -97,8 +97,8 @@
 
                 <div class="absolute inset-8 rounded-full overflow-hidden border-2 border-[#00FF00] shadow-[0_0_30px_rgba(0,255,0,0.3)] group z-10 bg-gray-900">
                     <img
-                        src="{{ $profile->image_path }}"
-                        alt="{{ $profile->full_name }}"
+                        src="{{ $profile->image_path ?? 'https://pub-6180c4620d87449486188286d6d526e5.r2.dev/profiles/defualt-image.png' }}"
+                        alt="{{ $profile->full_name ?? 'no name'}}"
                         class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

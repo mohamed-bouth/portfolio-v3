@@ -75,7 +75,6 @@
                 <form action="{{ route('contact.store') }}" method="POST" class="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-zinc-800 space-y-6">
                     @csrf
 
-                    {{-- Honeypot --}}
                     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -86,11 +85,11 @@
                                 type="text"
                                 name="name"
                                 value="{{ old('name') }}"
-                                class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00] transition-all duration-300 placeholder-zinc-700"
+                                class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00]"
                                 placeholder="John Doe"
                             >
                             @error('name')
-                                <span class="text-red-500 text-xs absolute -bottom-5 left-1">{{ $message }}</span>
+                                <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -101,48 +100,46 @@
                                 type="email"
                                 name="email"
                                 value="{{ old('email') }}"
-                                class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00] transition-all duration-300 placeholder-zinc-700"
+                                class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00]"
                                 placeholder="john@example.com"
                             >
                             @error('email')
-                                <span class="text-red-500 text-xs absolute -bottom-5 left-1">{{ $message }}</span>
+                                <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="space-y-2 relative pb-4">
+                    <div class="space-y-2">
                         <label for="message" class="text-sm font-medium text-gray-400 pl-1">Message</label>
                         <textarea
                             id="message"
                             rows="5"
                             name="message"
-                            class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00] transition-all duration-300 placeholder-zinc-700 resize-none"
+                            class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] focus:ring-1 focus:ring-[#00FF00] resize-none"
                             placeholder="Tell me about your project..."
                         >{{ old('message') }}</textarea>
                         @error('message')
-                            <span class="text-red-500 text-xs absolute bottom-0 left-1">{{ $message }}</span>
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
                         @enderror
                     </div>
 
-                    {{-- هنا تقدر تحط reCAPTCHA الحقيقي من بعد --}}
+                    <div class="space-y-2">
+                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                        @error('g-recaptcha-response')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-800/50">
                         <div class="flex items-center gap-2 text-zinc-500 text-xs bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800">
-                            <svg class="w-[14px] h-[14px] text-[#00FF00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                            <span>Protected by reCAPTCHA</span>
+                            <span>Protected by reCAPTCHA\</span>
                         </div>
 
                         <button
                             type="submit"
-                            class="w-full sm:w-auto px-8 py-3 bg-[#00FF00] text-black font-semibold rounded-xl hover:bg-[#00FF00]/90 transition-all duration-300 flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] hover:-translate-y-1"
+                            class="w-full sm:w-auto px-8 py-3 bg-[#00FF00] text-black font-semibold rounded-xl hover:bg-[#00FF00]/90 transition-all duration-300"
                         >
-                            <span>Send Message</span>
-                            <svg class="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M22 2 11 13"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M22 2 15 22l-4-9-9-4 20-7z"></path>
-                            </svg>
+                            Send Message
                         </button>
                     </div>
                 </form>
