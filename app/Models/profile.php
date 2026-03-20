@@ -10,7 +10,8 @@ class profile extends Model
         'full_name',
         'image_path',
         'bio',
-        'avatar',
-        'social_links',
+        'linkedin',
+        'github',
+        'gmail',
     ];
 }

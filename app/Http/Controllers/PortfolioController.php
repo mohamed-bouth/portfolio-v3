@@ -17,4 +17,4 @@ class PortfolioController extends Controller
         $projects = Project::latest()->get();
         return view('portfolio.index', compact('profile', 'projects', 'educations'));
     }
-}
+}  

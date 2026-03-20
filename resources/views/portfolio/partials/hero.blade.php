@@ -75,7 +75,7 @@
                     </a>
 
                     <a
-                        href="{{ $profile->gmail ?? 'https://gmail.com' }}"
+                        href="mailto:{{ $profile->gmail ?? 'https://gmail.com' }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Gmail"
