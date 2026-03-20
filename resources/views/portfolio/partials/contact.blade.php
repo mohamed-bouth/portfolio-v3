@@ -28,8 +28,8 @@
                     </div>
                     <div>
                         <h4 class="text-white font-medium mb-1">Email</h4>
-                        <a href="mailto:{{ $profile?->email ?? 'hello@example.com' }}" class="text-gray-400 hover:text-[#00FF00] transition-colors">
-                            {{ $profile?->email ?? 'hello@example.com' }}
+                        <a href="mailto:{{ $profile?->email ?? 'mohamedbouth87@gmail.com' }}" class="text-gray-400 hover:text-[#00FF00] transition-colors">
+                            {{ $profile?->email ?? 'mohamedbouth87@gmail.com' }}
                         </a>
                     </div>
                 </div>
@@ -42,8 +42,8 @@
                     </div>
                     <div>
                         <h4 class="text-white font-medium mb-1">Phone</h4>
-                        <a href="tel:{{ $profile?->phone ?? '+212600000000' }}" class="text-gray-400 hover:text-[#00FF00] transition-colors">
-                            {{ $profile?->phone ?? '+212600000000' }}
+                        <a href="tel:{{ $profile?->phone ?? '+212775692573' }}" class="text-gray-400 hover:text-[#00FF00] transition-colors">
+                            {{ $profile?->phone ?? '+212775692573' }}
                         </a>
                     </div>
                 </div>
