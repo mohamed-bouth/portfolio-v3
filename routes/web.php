@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioProfileController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\EducationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [PortfolioController::class, 'index'])->name('portfolio.index');
@@ -20,10 +22,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile/information', [PortfolioProfileController::class, 'edit'])->name('profile.custom.edit');
     Route::put('/profile/information', [PortfolioProfileController::class, 'update'])->name('profile.custom.update');
-});
 
-Route::middleware(['auth'])->group(function () {
-
+    Route::resource('/projects', ProjectController::class)->names('projects');
+    Route::resource('/education', EducationController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';

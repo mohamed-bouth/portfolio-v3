@@ -24,6 +24,18 @@
                     >
                         Profile Information
                     </a>
+                    <a
+                        href="{{ route('projects.index') }}"
+                        class="text-sm font-medium tracking-wide transition-colors {{ request()->routeIs('dashboard.projects.*') ? 'text-[#00FF00]' : 'text-zinc-400 hover:text-[#00FF00]' }}"
+                    >
+                        Projects
+                    </a>
+                    <a
+                        href="{{ route('education.index') }}"
+                        class="text-sm font-medium tracking-wide transition-colors {{ request()->routeIs('education.*') ? 'text-[#00FF00]' : 'text-zinc-400 hover:text-[#00FF00]' }}"
+                    >
+                        Education
+                    </a>
                 </div>
             </div>
 
@@ -114,6 +126,18 @@
                 class="block rounded-xl px-4 py-3 text-sm font-medium transition {{ request()->routeIs('profile.edit') ? 'bg-[#00FF00]/10 text-[#00FF00]' : 'text-zinc-300 hover:bg-zinc-900 hover:text-[#00FF00]' }}"
             >
                 Profile Information
+            </a>
+            <a
+                href="{{ route('projects.index') }}"
+                class="block rounded-xl px-4 py-3 text-sm font-medium transition {{ request()->routeIs('dashboard.projects.*') ? 'bg-[#00FF00]/10 text-[#00FF00]' : 'text-zinc-300 hover:bg-zinc-900 hover:text-[#00FF00]' }}"
+            >
+                Projects
+            </a>
+            <a
+                href="{{ route('education.index') }}"
+                class="block rounded-xl px-4 py-3 text-sm font-medium transition {{ request()->routeIs('education.*') ? 'bg-[#00FF00]/10 text-[#00FF00]' : 'text-zinc-300 hover:bg-zinc-900 hover:text-[#00FF00]' }}"
+            >
+                Education
             </a>
         </div>
 

@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class education extends Model
+class Education extends Model
 {
-    protected $filable = [
+
+protected $table = 'educations';
+
+    protected $fillable = [
         'institution',
-        'logo_path',
         'degree',
+        'location',
         'start_year',
         'end_year',
         'description',
